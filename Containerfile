@@ -46,7 +46,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /out/ /
-COPY entrypoint.sh /usr/local/bin/entrypoint.set
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 RUN chmod 0755 /usr/local/bin/entrypoint.sh \
     && useradd --system --uid 10001 --create-home --home-dir /data --shell /usr/bin/nologin monero \
